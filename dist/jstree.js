@@ -6280,7 +6280,7 @@
 					 */
 					$obj.on('dragover', cancel).on('dragenter', $.proxy(function(e){
 						var dropEffect = this.settings.dnd.always_copy || (this.settings.dnd.copy && (e.metaKey || e.ctrlKey)) ? 'copy' : 'move';
-						e.originalEvent.dataTransfer.dropEffect = dropEffect;
+						e.originalEvent.dataTransfer.effectAllowed = dropEffect;
 						$.vakata.dnd._trigger('move', e, {event: e, helper: $(), element: drag_target, data: drag_data});
 						return cancel(e);
 					}, this)).on('drop', $.proxy(function(e){
