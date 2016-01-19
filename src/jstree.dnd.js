@@ -140,6 +140,7 @@
 						$.vakata.dnd._trigger('move', e, {event: e, helper: $(), element: drag_target, data: drag_data});
 						return cancel(e);
 					}, this)).on('drop', $.proxy(function(e){
+						e.ctrlKey = e.altKey; // ctrl and meta key are blocked by html5 dnd, so switch to alt key instead with the benefit that your indicator switch to copy \o/
 						$.vakata.dnd._trigger('stop', e, {event: e, helper: $(), element: drag_target, data: drag_data});
 						return cancel(e);
 					}, this));
