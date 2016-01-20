@@ -148,7 +148,7 @@
 					 * declare node as draggable
 					 */
 					$obj.attr('draggable', true).on('dragstart', $.proxy(function (e) {
-						e.originalEvent.dataTransfer.effectAllowed = 'copyMove';
+						e.originalEvent.dataTransfer.effectAllowed = (options.copy ? 'copyMove' : 'move');
 						var obj = this.get_node(e.target),
 							mlt = this.is_selected(obj) && this.settings.dnd.drag_selection ? this.get_top_selected().length : 1;
 						drag_data = { 'jstree' : true, 'origin' : this, 'obj' : this.get_node(obj,true), 'nodes' : mlt > 1 ? this.get_top_selected() : [obj.id] };
